@@ -50,6 +50,16 @@ class ChannelTableViewController: UIViewController, UITableViewDelegate, UITable
         dismissViewControllerAnimated(true, completion: nil)
     }
     
+    // 设置cell动画
+    func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+        // cell动画代码
+        cell.layer.transform = CATransform3DMakeScale(0.1, 0.1, 1)
+        UIView.animateWithDuration(0.6) { () -> Void in
+            cell.layer.transform = CATransform3DMakeScale(1, 1, 1)
+        }
+    }
+
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
