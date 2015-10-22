@@ -270,7 +270,7 @@ class ViewController: UIViewController , UITableViewDelegate, UITableViewDataSou
         eHttp.onSearch(url)
     }
     
-    // 网络请求协议的方法
+    // 网络请求协议的方法 httpcontroller 协议函数
     func didReceiveResults(results: AnyObject) {
         print("接受到的参数： \(results)")
         
@@ -282,12 +282,13 @@ class ViewController: UIViewController , UITableViewDelegate, UITableViewDataSou
             isAutoFinish = false
             self.tableData = song
             print(self.tableData[0]["artist"].string)
+             // 刷新tableview 界面才能显示新的数据
             self.tv.reloadData()
             // 设置第一首歌的图片及背景
             onSelectRows(0)
 
         }
-            }
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
